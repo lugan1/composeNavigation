@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    //gradle 플러그인을 사용한다는 것을 명시한다.
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -69,4 +73,17 @@ dependencies {
 
     // Navigation Compose
     implementation "androidx.navigation:navigation-compose:2.6.0"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:2.44.2"
+    implementation "androidx.hilt:hilt-compiler:1.0.0"
+    kapt "com.google.dagger:hilt-compiler:2.44.2"
+
+    // Hilt Compose
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes true
 }
